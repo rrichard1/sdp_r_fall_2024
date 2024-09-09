@@ -1,0 +1,112 @@
+---
+title:  Reproducibility & Interactivity with R
+subtitle: SDP Fall Workshop 2024  
+---     
+
+**Facilitator:** Roland Richard  
+**Date:** September 11, 2024  
+**Affiliation:** Gwinnett County Public Schools - Office of Research, Evaluation, & Analytics
+
+
+## **Pre-Workshop Preparation**
+_Note: These instructions assume a Windows installation. If you are using a different OS (Mac or Linux), please contact me for assistance._
+
+### **1. Install R**
+1. Go to the [CRAN R Project website](https://cran.r-project.org/).
+2. Click on **Download R for Windows**.
+3. Choose **base** and then click **Download R 4.x.x for Windows**.
+4. Run the installer and follow the setup instructions, accepting the default settings.
+
+### **2. Install RStudio (or Preferred IDE)**
+1. Go to the [RStudio download page](https://posit.co/download/rstudio-desktop/).
+2. Click **Download** under the **RStudio Desktop Open Source License**.
+3. Once downloaded, run the installer and follow the setup instructions.
+
+### **3. Install Quarto**
+1. Go to the [Quarto download page](https://quarto.org/docs/get-started/).
+2. Click **Download for Windows**.
+3. Run the installer `.exe` file and follow the installation instructions.
+
+**Alternative Installation:**  
+If Quarto does not work, use **RMarkdown** and **Flexdashboard**. To install, run this in your R console:
+
+```r
+install.packages(c("rmarkdown", "flexdashboard"))
+```
+
+- To create an RMarkdown document:  
+  Go to **File** → **New File** → **RMarkdown**.
+  
+- To create a Flexdashboard:  
+  Go to **File** → **New File** → **RMarkdown** → **From Template** → **Flexdashboard**.
+
+### **4. Install Necessary R Packages**
+Open RStudio and run the following to install the required packages:
+
+```r
+install.packages(c("tidyverse", "janitor", "readxl", "assertthat", 
+                   "colorspace", "DT", "flexdashboard", "fontawesome", 
+                   "glue", "knitr", "lubridate", "readr", "rio", 
+                   "scales", "shiny", "shinyWidgets", "echarts4r", 
+                   "htmltools", "htmlwidgets", "plotly"))
+```
+
+### **5. Download the Required Datasets**
+Run the following code in R to download the datasets for the exercises:
+
+```r
+url_list <- list(
+  "https://download.gosa.ga.gov/2023/EOG_by_GRADE_2022-23__GA_TST_AGGR_2023-12-15_18_54_21.csv",
+  "https://download.gosa.ga.gov/2023/Enrollment_by_Subgroup_Metrics_2022-23_2023-12-15_18_54_53.csv",
+  "https://download.gosa.ga.gov/2023/Attendance_2022-23_2023-12-15_18_55_15.csv",
+  "https://download.gosa.ga.gov/2023/2023_directly_certified_school.xls",
+  "https://download.gosa.ga.gov/2023/2023_School_Mobility_for_Display.xls",
+  "https://download.gosa.ga.gov/2023/2023_directly_certified_district.xls",
+  "https://download.gosa.ga.gov/2023/2023_District_Mobility_for_Display.xls"
+)
+
+filenames <- c("EOG_by_GRADE_2022-23.csv", "Enrollment_by_Subgroup_Metrics_2022-23.csv",
+               "Attendance_2022-23.csv", "Directly_Certified_School_2023.xls", 
+               "School_Mobility.xls", "Directly_Certified_District_2023.xls", 
+               "District_Mobility.xls")
+
+purrr::walk2(url_list, filenames, download.file, mode = "wb")
+```
+
+### **6. Download Quarto File**
+Download the Quarto `.qmd` file (available on Sched) for the hands-on exercises.
+
+---
+
+## **Workshop Agenda**
+
+### **3:30 - 3:45 PM: Introduction to Quarto**
+- Overview of Quarto and why it's ideal for reproducible, interactive reporting.
+- Benefits of Quarto:
+  - Multi-format output (HTML, PDF, Word).
+  - Seamless integration with R and Python.
+  - Modern, interactive visualizations using Plotly.
+
+### **3:45 - 4:45 PM: Hands-on Exercises**
+Participants will build interactive reports and visualizations in Quarto.  
+Each exercise focuses on reproducibility and interactivity.
+
+#### **Exercise 1:** Create a Bar Graph
+- Create a bar graph with a drop-down menu for selecting a school district.
+
+#### **Exercise 2:** Conditional Bar Graph for Schools
+- Create a bar graph where school data changes based on the selected district.
+
+#### **Exercise 3:** Scatterplot with Demographics
+- Create a scatterplot to explore relationships between free/reduced lunch eligibility and school performance, with a subject selection drop-down.
+
+#### **Exercise 4:** Performance Table by Demographics
+- Build a table comparing performance across schools with similar demographic characteristics.
+
+#### **Exercise 5 (if time permits):** Create Your Own Interactive Visual
+- Design a graph or table using the skills you've learned in the previous exercises.
+
+### **4:45 - 5:15 PM: Wrap-Up, Q&A, and Past Project Highlights**
+- Review examples of reproducible reports.
+- Q&A session for any questions on Quarto, RMarkdown, or Shiny.
+- Overview of past projects and key takeaways for using reproducibility in your own work.

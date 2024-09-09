@@ -7,13 +7,13 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - agenda.qmd
-
+      - href: agenda.qmd
+        text: Agenda
 format:
   html:
     theme: simplex
     # styles2.scss
-    css: styles.css
+    css: styles2.css
     toc: true
 
 
