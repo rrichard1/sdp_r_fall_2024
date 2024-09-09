@@ -1,0 +1,20 @@
+project:
+  type: website
+  output-dir: docs
+website:
+  title: "Reproducibility and Interactivity with R"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - agenda.qmd
+
+format:
+  html:
+    theme: simplex
+    # styles2.scss
+    css: styles.css
+    toc: true
+
+
+
