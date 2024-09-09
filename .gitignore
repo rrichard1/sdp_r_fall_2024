@@ -47,5 +47,24 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
-/.quarto/
-/env/
+
+# Quarto files and directories
+.quarto/
+.quarto-cache/
+.quarto-render/
+
+# Python virtual environments
+.env/
+.venv/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+
+# System files
+.DS_Store
+Thumbs.db
