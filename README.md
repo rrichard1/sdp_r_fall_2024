@@ -1,2 +1,2 @@
-# sdp_r_fall_2024
-R/Quarto/Shiny Training for SDP Fall Workshop
+# Reproducibility_and_Interactivity_with_R
+SDP Fall Workshop 2024
